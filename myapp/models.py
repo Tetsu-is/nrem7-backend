@@ -8,3 +8,11 @@ class Product(models.Model):
 class General(models.Model):
     deadline = models.DateField()
     requiredtime = models.DurationField()
+
+class Time(models.Model):
+    acountName = models.CharField(max_length=1000)
+    acountNumber = models.IntegerField(default=0, unique=True)
+    startTime = models.DateTimeField()
+    endTime = models.DateTimeField()
+    key = models.IntegerField(unique=True)
+    
