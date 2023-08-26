@@ -4,17 +4,17 @@ setup:
 	cp .env.example .env
 
 install:
-	pip install -r requirements.txt
-
-start:
-	python manage.py runserver
+	docker-compose exec web pip install -r requirements.txt
 
 migrate:
-	python manage.py migrate
-	python manage.py superuser
+	docker-compose exec web python manage.py migrate
+	docker-compose exec web python manage.py superuser
 
 up:
 	docker-compose up
 
 enter:
 	docker-compose exec web /bin/sh
+
+enter-db:
+	docker-compose exec db /bin/sh
