@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'myapp',
     'rest_framework',
     'rest_framework.authtoken',
+    'corsheaders',
 ]
 
 REST_FRAMEWORK = {
@@ -67,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 default_dburl = "sqlite:///" + str(BASE_DIR / "db.sqlite3")
@@ -152,3 +154,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SUPERUSER_NAME = env("SUPERUSER_NAME")
 SUPERUSER_EMAIL = env("SUPERUSER_EMAIL")
 SUPERUSER_PASSWORD = env("SUPERUSER_PASSWORD")
+
+# すべてのドメインからのアクセスを許可する場合
+CORS_ALLOW_ALL_ORIGINS = True
+
+# 特定のドメインからのアクセスのみ許可する場合
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",   # Next.js のデフォルトのポート
+    "http://localhost:3000/admin",  
+]
