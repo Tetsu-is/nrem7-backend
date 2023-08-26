@@ -12,3 +12,16 @@ def getProduct():
 
 postProduct('商品1', 200)
 getProduct()
+
+def postGeneral(deadline, requiredtime):
+    api_url = 'http://127.0.0.1:8000/general' #ローカルサーバー
+    y = requests.post(api_url, data={'deadline': deadline, 'requiredtime': requiredtime})
+    print(y.text)
+
+def getGeneral():
+    api_url = 'http://127.0.0.1:8000/general'
+    res = requests.get(api_url)
+    print(res.text)
+
+postGeneral('2021-01-01', '00:00:00')
+getGeneral()
