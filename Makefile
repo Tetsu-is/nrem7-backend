@@ -18,3 +18,6 @@ up:
 
 enter:
 	docker-compose exec web /bin/sh
+
+make-exec-migrate:
+	docker-compose exec web python manage.py migrate

@@ -25,3 +25,16 @@ def getGeneral():
 
 postGeneral('2021-01-01', '00:00:00')
 getGeneral()
+
+def postTime(acountName, acountNumber, startTime, endTime, key):
+    api_url = 'http://127.0.0.1:8000/time'
+    z = requests.post(api_url, data={'acountName': acountName, 'acountNumber': acountNumber, 'startTime': startTime, 'endTime': endTime, 'key': key})
+    print(z.text)
+
+def getTime():
+    api_url = 'http://127.0.0.1:8000/time'
+    res = requests.get(api_url)
+    print(res.text)
+
+postTime('アカウント名', '1234', '2022-04-01', '2022-04-03', '5678')
+getTime()
