@@ -21,5 +21,5 @@ class Time_Serializer(serializers.ModelSerializer):
     class Meta:
         model = Time
         fields = (
-            'acountName', 'acountNumber', 'startTime', 'endTime', 'key'
+            'acountName', 'acountNumber', 'day', 'timearray', 'key'
         )
