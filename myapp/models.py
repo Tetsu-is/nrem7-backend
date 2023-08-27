@@ -14,6 +14,6 @@ class Time(models.Model):
     acountNumber = models.PositiveIntegerField(default=0, unique=True)
     day = models.IntegerField()
     startTime = models.IntegerField()
-    endTime = models.IntegerChoices()
+    endTime = models.IntegerField()
     key = models.PositiveIntegerField(unique=True)
     
