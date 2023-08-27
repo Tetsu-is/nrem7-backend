@@ -8,3 +8,4 @@ psycopg2-binary
 whitenoise
 djangorestframework==3.14.0
 requests
+django-cors-headers

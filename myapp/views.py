@@ -10,13 +10,14 @@ from .models import Product
 from .models import General
 from .models import Time
 
+
 class IndexView(View):
-    def get(self, request, *args, **kwargs):
+    def get(self, request):
         return render(request, "myapp/index.html")
 
 class ProductView(APIView):
     permission_classes = (IsAuthenticated, )
-    def get(self, request, *args, **kwargs):
+    def get(self):
         qs = Product.objects.all()
         serializer = Product_Serializer(qs, many=True)
         return Response(serializer.data)
@@ -29,8 +30,9 @@ class ProductView(APIView):
         return Response(serializer.errors)
 
 class GeneralView(APIView):
-    def get(self, request, *args, **kwargs):
+    def get(self, request):
         qs = General.objects.all()
+        print(qs)
         serializer = General_Serializer(qs, many=True)
         return Response(serializer.data)
     
@@ -42,7 +44,7 @@ class GeneralView(APIView):
         return Response(serializer.errors)
     
 class TimeView(APIView):
-    def get(self, request, *args, **kwargs):
+    def get(self, request):
         qs = Time.objects.all()
         serializer = Time_Serializer(qs, many=True)
         return Response(serializer.data)
