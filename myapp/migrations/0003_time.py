@@ -16,6 +16,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('acountName', models.CharField(max_length=1000)),
                 ('acountNumber', models.IntegerField(default=0, unique=True)),
+                ('day', models.IntegerField(default=0)),
                 ('startTime', models.DateTimeField()),
                 ('endTime', models.DateTimeField()),
                 ('key', models.IntegerField(unique=True)),
