@@ -34,6 +34,33 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_CREDENTIALS = True
+
+#許可するメソッドを指定する
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+#許可するヘッダーを指定する
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+
 LANGUAGE_CODE = 'ja'
 
 TIME_ZONE = 'Asia/Tokyo'
@@ -68,7 +95,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 default_dburl = "sqlite:///" + str(BASE_DIR / "db.sqlite3")
@@ -161,5 +188,5 @@ CORS_ALLOW_ALL_ORIGINS = True
 # 特定のドメインからのアクセスのみ許可する場合
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",   # Next.js のデフォルトのポート
-    "http://localhost:3000/admin",  
+    # "http://localhost:3000/admien",  
 ]
