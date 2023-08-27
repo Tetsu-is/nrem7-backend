@@ -11,8 +11,9 @@ class General(models.Model):
 
 class Time(models.Model):
     acountName = models.CharField(max_length=1000)
-    acountNumber = models.IntegerField(default=0, unique=True)
-    startTime = models.DateTimeField()
-    endTime = models.DateTimeField()
-    key = models.IntegerField(unique=True)
+    acountNumber = models.PositiveIntegerField(default=0, unique=True)
+    day = models.IntegerField()
+    startTime = models.IntegerField()
+    endTime = models.IntegerChoices()
+    key = models.PositiveIntegerField(unique=True)
     
